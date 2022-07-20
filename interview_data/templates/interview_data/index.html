@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<body>
+    <h1>Get Ready For Interviews!</h1>
+    <div>
+        <a href="{% url 'add_member'%}" target="_blank">Add new member</a>
+    </div>
+    <div>
+        <h2>Not Interviewed Yet</h2>
+        <ul>
+            {% for member in not_members.all %}
+            <li> <a href="{% url 'detail' member.id %}" target="_blank" >{{member.name }} -- {{ member.interview_time}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <h2>Done Interviews</h2>
+        <ul>
+            {% for member in members.all %}
+            <li> <a href="{% url 'detail' member.id %}" target="_blank" >{{member.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    
+</body>
+</html>

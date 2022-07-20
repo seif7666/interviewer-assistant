@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <style>
+        #prog li {
+            display: inline;
+            margin: 2em;
+        }
+
+        div li {
+            display: inline;
+            margin: 2em;
+        }
+
+        div {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>{{ member.name}}</h1>
+    <span>
+        <h3>Programming Languages</h3>
+        <ul id="prog">
+            <li>C: {{ member.C}}</li>
+            <li>C++: {{ member.CPP}}</li>
+            <li>C#: {{ member.CHash}}</li>
+            <li>Python: Ask him</li>
+            <li>Java: {{member.Java}}</li>
+        </ul>
+    </span>
+    <span>
+        <h3>Other Technologies</h3>
+        <div>
+            <li>Git: {{ member.Git}} </li>
+            <li>OpenCV: {{ member.OpenCV}} </li>
+            <li>Arduino: {{ member.Arduino}}</li>
+            <li>Other MCs: {{ member.other_micro_controllers}}</li>
+        </div>
+        <div>
+            <li>Image Processing: {{member.image_processing}}</li>
+            <li>Machine Learning: {{member.machine_learning}}</li>
+            <li>Communication: {{member.communication}}</li>
+        </div>
+        <div>
+            <li>Data Structures: {{member.data_structures}}</li>
+            <li>Algorithms: {{member.algorithms}}</li>
+        </div>
+    </span>
+    <span>
+        <h3>Hardware</h3>
+        <ul id="pcb">
+            <div>
+                <li>PCB design Eagle : {{member.PCB_design_eagle}}</li>
+                <li>PCB design Altium : {{member.PCB_design_altium}}</li>
+                <li>PCB design Proteus : {{member.PCB_design_proteus}}</li>
+            </div>
+            <div>
+                <li>PCB Manufacture Single Layer : {{member.PCB_manufacture_single}}</li>
+                <li>PCB Manufacture Double Layer : {{member.PCB_manufacture_double}}</li>
+                <li>SMD : {{member.SMD}}</li>
+            </div>
+        </ul>
+    </span>
+    <span>
+        <h3>Extra</h3>
+        <p>Projects: {{member.projects}} </p>
+        <p>Knowledge of sensors: {{member.sensors_knowledge}} </p>
+    </span>
+    <hr>
+    <hr>
+    <h2>Interviewer Comments:</h2>
+    <ul>
+        {% for comment in comments %}
+        <li>{{comment.comment}}</li>
+        {% endfor %}
+    </ul>
+    <form  method="post" action="{% url 'add_comment' member.id %}">
+        {% csrf_token %}
+        <label>Comment :</label>
+        <input type="text" name="comment" required>
+        <input type="submit" >
+    </form>
+
+    <br><br><br><br>
+    <form  method="post" action="{% url 'set_to_interviewed' member.id %}">
+        {% csrf_token %}
+        <label>Interview Done: </label>
+        <input type="checkbox">
+        <input type="submit">
+    </form>
+
+</body>
+
+</html>

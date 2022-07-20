@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Member</title>
+</head>
+<body>
+    <h1>Add New Member</h1>
+    <form action="{% url 'post_member' %}" method="post">
+        {% csrf_token %}
+
+        Name: <input type="text" name="name" required> <br>
+        Interview Time: <input type="datetime-local" name="interview_time" required><br>
+        <br><br><br>
+        C: <input type="number" name="C" style="width:2em;" value="0">
+        C++: <input type="number" name="CPP" style="width:2em;" value="0" >
+        C#: <input type="number" name="CHash" style="width:2em;" value="0">
+        java: <input type="number" name="Java" style="width:2em;" value="0">
+        Python: <input type="number" name="python" style="width:2em;" value="0">
+        <br><br>
+        Git: <input type="number" name="Git" style="width:2em;" value="0">
+        OpenCV: <input type="number" name="OpenCV" style="width:2em;"value="0">
+        <br><br>
+        Arduino: <input type="number" name="Arduino" style="width:2em;"value="0">
+        Other MCS: <input type="text" name="other_micro_controllers" >
+        <br><br>
+        Image Processing: <input type="number" name="image_processing" style="width:2em;" value="0">
+        Machine Learning: <input type="number" name="machine_learning" style="width:2em;" value="0">
+        Communication: <input type="number" name="communication" style="width:2em;" value="0">
+
+        <br><br>
+        DataStructures: <input type="number" name="data_structures" style="width:2em;" value="0">
+        Algorithms: <input type="number" name="algorithms" style="width:2em;" value="0">
+        <br><br>
+        PCB_design_eagle: <input type="number" name="PCB_design_eagle" style="width:2em;" value="0">
+        PCB_design_altium: <input type="number" name="PCB_design_altium" style="width:2em;" value="0">
+        PCB_design_proteus: <input type="number" name="PCB_design_proteus" style="width:2em;" value="0">
+        <br><br>
+        PCB_manufacture_single: <input type="number" name="PCB_manufacture_single" style="width:2em;" value="0">
+        PCB_manufacture_double: <input type="number" name="PCB_manufacture_double" style="width:2em;" value="0">
+        SMD: <input type="number" name="SMD" style="width:2em;" value="0">
+        <br><br>
+        Projects: <input type="text" name="projects">
+        Sensors: <input type="text" name="sensors_knowledge">
+        <br><br>
+        GUI:<input type="number" name="GUI" value="0">
+        
+        <br><br>
+        <input type="submit">        
+    </form>
+    
+</body>
+</html>
