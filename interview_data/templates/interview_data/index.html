@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
+    <style>
+        th{
+            font-size: larger;
+        }
+        
+        .data{
+            position: relative;
+            left: 5em;
+            align-items: center;
+        }
+    </style>
 </head>
+
 <body>
     <h1>Get Ready For Interviews!</h1>
     <div>
@@ -14,20 +27,30 @@
     <div>
         <h2>Not Interviewed Yet</h2>
         <ul>
-            {% for member in not_members.all %}
-            <li> <a href="{% url 'detail' member.id %}" target="_blank" >{{member.name }} -- {{ member.interview_time}}</a></li>
-            {% endfor %}
+            <table>
+                <th>Name</th>
+                <th class="data">Time of Interview</th>
+
+                {% for member in not_members.all %}
+                <tr>
+                    <td> <a href="{% url 'detail' member.id %}" target="_blank">{{member.name }} </a></td>
+                    <td class="data">{{ member.interview_time}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
         </ul>
     </div>
     <div>
         <h2>Done Interviews</h2>
         <ul>
             {% for member in members.all %}
-            <li> <a href="{% url 'detail' member.id %}" target="_blank" >{{member.name }}</a></li>
+            <li> <a href="{% url 'detail' member.id %}" target="_blank">{{member.name }}</a></li>
             {% endfor %}
         </ul>
     </div>
-    
-    
+
+
 </body>
+
 </html>
